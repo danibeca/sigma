@@ -7,8 +7,7 @@ namespace Sigma\Http\Controllers\Auth;
 use Sigma\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use Sigma\Utils\Transformers\UserTransformer;
-use Tymon\JWTAuth\Facades\JWTAuth;
-
+use Illuminate\Support\Facades\Auth;
 
 class TokenAuthController extends ApiController {
 
@@ -23,12 +22,12 @@ class TokenAuthController extends ApiController {
     {
         $credentials = $request->only('email', 'password');
 
-        if ( ! $token = JWTAuth::attempt($credentials))
+        if ( ! $token = Auth::guard('api')->attempt($credentials))
         {
             return $this->setStatusCode(401)->respondWithError('Invalid Credentials');
         }
 
-        $user = JWTAuth::toUser($token);
+        $user = Auth::guard('api')->user();
         $data = array_merge($this->userTransformer->transform($user), ['token' => $token]);
 
         return $this->respond($data);

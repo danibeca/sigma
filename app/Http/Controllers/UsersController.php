@@ -3,7 +3,6 @@
 namespace Sigma\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Sigma\Http\Requests;
 use Sigma\Models\Security\User;
 use Sigma\Utils\Transformers\UserTransformer;
 
@@ -16,7 +15,8 @@ class UsersController extends ApiController {
     {
         $this->userTransformer = $userTransformer;
         //$this->middleware('jwt.auth', ['except' => ['index']]);
-        $this->middleware('jwt.auth');
+        $this->middleware('auth:api');
+
     }
 
     public function store(Request $request)

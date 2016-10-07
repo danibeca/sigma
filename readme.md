@@ -1,3 +1,3 @@
 ## Sigma
 
-Sigma is Laravel Rest Application for learning purposes.
+Sigma is a Laravel Rest Application for learning purposes.

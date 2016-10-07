@@ -4,6 +4,7 @@ namespace Sigma\Utils\Helpers;
 
 use Illuminate\Http\Response as IlluResponse;
 use Illuminate\Support\Facades\Response;
+
 trait ResponseHelper {
 
     protected $statusCode = IlluResponse::HTTP_OK;
@@ -33,6 +34,11 @@ trait ResponseHelper {
     public function respondMethodNotAllowed($message = 'Method Not Allowed')
     {
         return $this->setStatusCode(IlluResponse::HTTP_METHOD_NOT_ALLOWED)->respondWithError($message);
+    }
+
+    public function respondUnauthenticated($message = 'Unauthenticated')
+    {
+        return $this->setStatusCode(IlluResponse::HTTP_UNAUTHORIZED)->respondWithError($message);
     }
 
 

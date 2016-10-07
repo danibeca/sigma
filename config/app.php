@@ -113,6 +113,9 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        /*
+         * Laravel Framework Service Providers...
+         */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -125,6 +128,7 @@ return [
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
         Illuminate\Pagination\PaginationServiceProvider::class,
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
@@ -139,10 +143,12 @@ return [
          * Application Service Providers...
          */
         Sigma\Providers\AppServiceProvider::class,
+        Sigma\Providers\AuthServiceProvider::class,
+        // Sigma\Providers\BroadcastServiceProvider::class,
         Sigma\Providers\EventServiceProvider::class,
         Sigma\Providers\RouteServiceProvider::class,
 
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
 
     ],
