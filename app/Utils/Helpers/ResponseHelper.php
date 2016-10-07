@@ -44,7 +44,7 @@ trait ResponseHelper {
 
     public function respond($data, $headers = [])
     {
-        return Response::json($data, $this->getStatusCode(), $headers);
+        return Response::json($data, $this->getStatusCode(), $headers, JSON_UNESCAPED_UNICODE);
     }
 
     public function respondWithError($message)
